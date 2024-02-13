@@ -3,9 +3,8 @@ import Post from "./components/Post";
 function App() {
   return (
     <main>
-      <Post />
-      <Post />
-      <Post />
+      <Post author="Harsh" body="Trying props" />
+      <Post author="Varshney" body="Trying more props" />
     </main>
   );
 }
