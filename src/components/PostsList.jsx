@@ -22,18 +22,22 @@ function PostsList() {
     setModalIsVisible(false);
   }
 
+  let modalContent;
+  if (modalIsVisible) {
+    modalContent = (
+      <Modal onClose={hideModalHandler}>
+        {/* // passing the function bodyChangeHandler in props to the NewPost */}
+        <NewPost
+          onBodyChange={bodyChangeHandler}
+          onAuthorChange={authorChangeHandler}
+        />
+      </Modal>
+    );
+  }
+
   return (
     <>
-      {modalIsVisible ? (
-        <Modal onClose={hideModalHandler}>
-          {/* // passing the function bodyChangeHandler in props to the NewPost */}
-          <NewPost
-            onBodyChange={bodyChangeHandler}
-            onAuthorChange={authorChangeHandler}
-          />
-        </Modal>
-      ) : null}
-
+      {modalContent}
       <ul className={classes.posts}>
         <Post author={enteredAuthor} body={enteredBody} />
         <Post author="Varshney" body="second body" />
